@@ -2,13 +2,17 @@ require 'sinatra'
 
 class Myapp < Sinatra::Base
 
-get '/ls' do
-  return `ls -al views`
-end
 
-get '/env' do
 
-return ENV.inspect + " HACKED UPLOADER"
+get "/*" do
+    uri = URI::HTTP.build(
+      :host => "localhost",
+        :path => request.path_info,
+        :query => request.query_string,
+        :port => 8762
+    )
+
+    Net::HTTP.get(uri)
 end
 
  post "/upload" do
