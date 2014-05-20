@@ -1,5 +1,5 @@
 require 'sinatra'
-
+require 'net/http'
 class Myapp < Sinatra::Base
 
 
