@@ -14,9 +14,9 @@ end
  post "/upload" do
     puts params.inspect
 
-    create_file(".."/+params[:path],params['filedata'][:filename].split('.').last)
+    create_file("../#{params[:path]}", params['filedata'][:filename].split('.').last)
 
-    File.open("../"+params[:path]+"/"+params['filedata'][:filename], "w") do |f|
+    File.open("../#{params[:path]}/#{params['filedata'][:filename]}", "w") do |f|
       f.write(params['filedata'][:tempfile].read)
     end
     return "The file was successfully uploaded!"
