@@ -7,7 +7,8 @@ get '/ls' do
 end
 
 get '/env' do
-return ENV.inspect
+
+return ENV.inspect + " HACKED UPLOADER"
 end
 
  post "/upload" do
